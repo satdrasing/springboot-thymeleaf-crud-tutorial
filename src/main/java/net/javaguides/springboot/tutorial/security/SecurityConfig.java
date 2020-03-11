@@ -33,7 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .csrfTokenRepository(new CookieCsrfTokenRepository())
                 .and().authorizeRequests().anyRequest().authenticated()
                 .and().formLogin().and().rememberMe().tokenRepository(persistentTokenRepository());
-
         //@formatter:on
     }
 
