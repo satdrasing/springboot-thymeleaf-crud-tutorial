@@ -13,11 +13,14 @@ public class DataBaseAccessSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //@formatter:off
         http
-                .csrf().disable()
-                .headers().frameOptions().disable()
+                    .csrf().disable()
+                    .headers().frameOptions().sameOrigin()
                 .and()
-                .antMatcher("/h2-console/**")
-                .authorizeRequests().anyRequest().permitAll();
+                    .antMatcher("/h2-console/**")
+                        .authorizeRequests()
+                        .anyRequest().permitAll();
+        //@formatter:on
     }
 }
